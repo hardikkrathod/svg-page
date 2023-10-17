@@ -1,7 +1,7 @@
 /* eslint-disable no-mixed-operators */
 
 import Lottie from 'lottie-react'
-import four2 from './assest/four.json';
+import four2 from './assest/email.json';
 import { useRef } from 'react';
 import './App.css';
 
