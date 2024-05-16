@@ -1,8 +1,9 @@
 /* eslint-disable no-mixed-operators */
 import './App.css';
 import Nav from './Nav';
+import { useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import { message, Upload } from 'antd';
+import { message, Upload,Modal } from 'antd';
 const { Dragger } = Upload;
 function App() {
   const props = {
@@ -22,7 +23,18 @@ function App() {
     },
     onDrop(e) {
       console.log('Dropped files', e.dataTransfer.files);
-    },
+    }
+
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
   };
   return (
     <>
@@ -45,9 +57,14 @@ function App() {
 
 
   </div>
-    <button className='btn-rgb'>
+    <button className='btn-rgb' onClick={showModal}>
     Hello
   </button>
+  <Modal  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
     </main>
     </>
   );
